@@ -1,0 +1,28 @@
+1 -> function 
+2-> anonymys -> fatyarrow , callbackback
+
+3-> async functions 
+
+4 sec 
+async func1(); ->10// third 4sec
+async function2();->20 // 2sec
+async function 3();->30//second  1sec
+async function4();->40//fourth  3sec
+
+10 sec 
+
+const function1 = async()=>{
+
+console.log("hello");
+}
+
+
+// pause const abc = await function1();
+
+
+async function1(){
+
+}
+
+code.function().then()
+
