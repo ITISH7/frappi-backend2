@@ -1,33 +1,31 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
+const dbconnect = require('./config/dbconnect');
+const specials = require("./modals/specialSchema")
 
-  
-
-
-
-
-
-mongoose.connect("mongodb+srv://itish_jain:12345@cluster0.vxfie1s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
-{
-    dbName:"frappi"
-
-}).then(()=>{
-    console.log("database connected succesfully")
-}).catch(err=>{
-    console.log("error in connecting".err)
-})
-
-
-
-
-
-
-
-
+// database connectivity 
+dbconnect();
 
 app.get("/",(req,res)=>{
     res.send("hello moto");
+})
+app.post("/senddata",async(req,res)=>{
+    const imagelink = req.body.imagelink;
+    const price = req.body.price;
+    const description=req.body.description;
+    const title=req.body.title;
+    const enteredvalue= await specials.create({
+        imageLink:imagelink,
+        price:price,
+        description:description,
+        title:title    
+    })
+
+   if(enteredvalue){
+    res.send("data added successfully!!")
+   }
+
+
 })
 
 // data base ki connectivity 
