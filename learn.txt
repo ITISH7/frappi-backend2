@@ -32,3 +32,6 @@ async function1(){
 }
 code.function().then()
 
+//frontent kobackendse connect kerna hai 
+// front end pe data dalege 
+// feedback form creation n
