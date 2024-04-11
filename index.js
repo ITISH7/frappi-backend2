@@ -2,7 +2,15 @@ const express = require("express");
 const app = express();
 const dbconnect = require('./config/dbconnect');
 const specials = require("./modals/specialSchema")
-
+const cors = require('cors');
+const bodyparser = require('body-parser')
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended:false}))
+app.use(cors({
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 // database connectivity 
 dbconnect();
 
